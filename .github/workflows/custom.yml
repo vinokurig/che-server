@@ -24,7 +24,7 @@ on:
       name:
         description: 'Tag to build'
         type: string
-        default: 'latest'
+        required: true
 
 env:
   PR_IMAGE_TAG: pr-${{ github.event.pull_request.number }}
@@ -34,4 +34,4 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - name: Greetings
-        run: echo "${{ inputs.name }}"
+        run: echo "${{ github.ref_type }}"
