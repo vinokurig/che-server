@@ -31,6 +31,8 @@ jobs:
         cache: 'maven'
     - name: Set up QEMU
       uses: docker/setup-qemu-action@v3
+    - name: Greetings
+      run: echo "${{ github.ref_type }}"
     - name: Login to docker.io
       if: github.event_name == 'pull_request'
       uses: redhat-actions/podman-login@v1
