@@ -44,6 +44,7 @@ jobs:
         password: ${{ secrets.QUAY_PASSWORD }}
         registry: quay.io
     - name: Build with Maven
+      if: ${{ matrix.default == true }}
       run: mvn -B clean install -U -Pintegration
       env:
         DEVELOCITY_ACCESS_KEY: ${{ secrets.DEVELOCITY_API_TOKEN }}
